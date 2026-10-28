@@ -1,0 +1,25 @@
+{% load simple_content %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <meta name="description" content=""> -->
+        <!-- <meta name="author" content=""> -->
+        <link rel="canonical" href="{{ page.get_absolute_url }}">
+
+        <title>{{ page.title }}</title>
+        {% if page.template_page.head_content %}
+            {{ page.template_page.get_head|safe }}
+        {% endif %}
+        {% if page.head_content %}
+            {{ page.get_head|safe }}
+        {% endif %}
+    </head>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white">
+        <div class="container">
+            <h5 class="my-0 mr-md-auto font-weight-normal">{{ page.title }}</h5>
+            {{ page.render }}
+        </div>
+    </body>
+</html>
