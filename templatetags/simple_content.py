@@ -1,3 +1,5 @@
+# pylint: disable=no-member
+
 from django import template
 
 from ..models import MediaContent
@@ -12,4 +14,3 @@ def content_media_url(slug):
         return ''
 
     return media_obj.get_absolute_url()
-

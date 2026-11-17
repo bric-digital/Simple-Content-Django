@@ -7,10 +7,10 @@ if sys.version_info[0] > 2:
 else:
     from django.conf.urls import url
 
-from .views import simple_content_page, simple_content_media
+from .views import simple_content_page, simple_content_media, simple_content_collection
 
 urlpatterns = [
     url(r'^p/(?P<slug>.+)$', simple_content_page, name='simple_content_page'),
     url(r'^m/(?P<slug>.+)$', simple_content_media, name='simple_content_media'),
+    url(r'^c/(?P<slug>.+)$', simple_content_collection, name='simple_content_collection'),
 ]
-

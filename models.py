@@ -3,11 +3,10 @@
 import mimetypes
 
 from django.db import models
-from django.db.models.signals import post_save, pre_save
-from django.template.loader import render_to_string
+from django.db.models.signals import post_save
 from django.template import Template, Context
 from django.urls import reverse
-from django.utils import timezone
+from django.utils.safestring import mark_safe
 from django.dispatch import receiver
 
 from markdownfield.models import MarkdownField, RenderedMarkdownField
@@ -20,10 +19,40 @@ class PageCollection(models.Model):
     content_rendered = RenderedMarkdownField()
     search_content = models.TextField(max_length=(1024 * 1024), blank=True)
 
+    is_template = models.BooleanField(default=False)
+
+    template_page = models.ForeignKey('PageCollection', related_name='uses', on_delete=models.SET_NULL, null=True, blank=True)
+
     notes = models.TextField(max_length=(1024 * 1024), null=True, blank=True)
 
     def __str__(self):
         return '%s (%s)' % (self.title, self.slug)
+
+    def get_absolute_url(self):
+        return reverse('simple_content_collection', args=[self.slug])
+
+    def render(self):
+        context = {
+            'collection': self
+        }
+
+        if self.template_page is not None:
+            template = Template('{% load simple_content %}' + self.template_page.content)
+
+            return template.render(Context(context))
+
+        template = Template('{% load simple_content %}' + self.content_rendered)
+
+        return mark_safe(template.render(Context(context)))
+
+    def get_head(self):
+        context = {
+            'collection': self,
+        }
+
+        template = Template('{% load simple_content %}' + self.head_content)
+
+        return template.render(Context(context))
 
 class PageContent(models.Model):
     title = models.CharField(max_length=8192)
@@ -54,13 +83,13 @@ class PageContent(models.Model):
         }
 
         if self.template_page is not None:
-            template = Template('{% load simple_content %}' + self.template_page.content_rendered)
+            template = Template('{% load simple_content %}' + self.template_page.content)
 
             return template.render(Context(context))
 
         template = Template('{% load simple_content %}' + self.content_rendered)
 
-        return template.render(Context(context))
+        return mark_safe(template.render(Context(context)))
 
     def get_head(self):
         context = {
@@ -92,9 +121,9 @@ class MediaContent(models.Model):
         return reverse('simple_content_media', args=[self.slug])
 
 @receiver(post_save, sender=MediaContent)
-def set_content_type(sender, instance, **kwargs):
+def set_content_type(sender, instance, **kwargs): # pylint: disable=unused-argument
     if instance.content_type is None and (instance.content_file in ('', None,)) is False:
-        (content_type, encoding) = mimetypes.guess_type(instance.content_file.path)
+        (content_type, encoding) = mimetypes.guess_type(instance.content_file.path) # pylint: disable=unused-variable
 
         if content_type is not None:
             instance.content_type = content_type

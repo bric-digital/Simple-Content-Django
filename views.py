@@ -2,7 +2,7 @@ from django.http import HttpResponse
 
 from django.shortcuts import get_object_or_404, render, redirect
 
-from .models import PageContent, MediaContent
+from .models import PageContent, MediaContent, PageCollection
 
 def simple_content_page(request, slug):
     context = {
@@ -11,7 +11,7 @@ def simple_content_page(request, slug):
 
     return render(request, 'simple_content_page.html', context=context)
 
-def simple_content_media(request, slug):
+def simple_content_media(request, slug): # pylint: disable=unused-argument
     media_obj = get_object_or_404(MediaContent, slug=slug)
 
     if media_obj.content_url is not None:
@@ -20,3 +20,10 @@ def simple_content_media(request, slug):
     file_handle = media_obj.content_file.open()
 
     return HttpResponse(file_handle, content_type=media_obj.content_type)
+
+def simple_content_collection(request, slug):
+    context = {
+        'collection': get_object_or_404(PageCollection, slug=slug)
+    }
+
+    return render(request, 'simple_content_collection.html', context=context)

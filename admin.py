@@ -1,8 +1,5 @@
-# pylint: disable=line-too-long
+# pylint: disable=line-too-long, ungrouped-imports
 
-import json
-
-from django.conf import settings
 from django.contrib import admin
 
 try:
