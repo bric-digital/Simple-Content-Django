@@ -40,24 +40,24 @@ jobs:
             pip install wheel
             pip install -r requirements.txt
             cd ..
-            mv project simple_dashboard
+            mv project simple_content
             mkdir django
             cd django
             django-admin startproject sd
-            mv ../simple_dashboard sd
+            mv ../simple_content sd
             cd sd
-            cp simple_dashboard/.circleci/circle_settings.py sd/settings.py
+            cp simple_content/.circleci/circle_settings.py sd/settings.py
             git clone https://github.com/audacious-software/Quicksilver-Django.git quicksilver
             pip install -r quicksilver/requirements.txt
             python manage.py migrate
             python manage.py install_quicksilver_tasks
-            python manage.py simple_dashboard_update_values
+            python manage.py simple_content_update_values
             python manage.py test
-            cp simple_dashboard/.pylintrc .
-            pylint simple_dashboard
+            cp simple_content/.pylintrc .
+            pylint simple_content
             bandit -r .
       - save_cache:
-          key: venv-314-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_dashboard/requirements.txt" }}
+          key: venv-314-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_content/requirements.txt" }}
           paths:
             - "/home/circleci/venv"
       - store_test_results:
@@ -90,24 +90,24 @@ jobs:
             pip install wheel
             pip install -r requirements.txt
             cd ..
-            mv project simple_dashboard
+            mv project simple_content
             mkdir django
             cd django
             django-admin startproject sd
-            mv ../simple_dashboard sd
+            mv ../simple_content sd
             cd sd
-            cp simple_dashboard/.circleci/circle_settings.py sd/settings.py
+            cp simple_content/.circleci/circle_settings.py sd/settings.py
             git clone https://github.com/audacious-software/Quicksilver-Django.git quicksilver
             pip install -r quicksilver/requirements.txt
             python manage.py migrate
             python manage.py install_quicksilver_tasks
-            python manage.py simple_dashboard_update_values
+            python manage.py simple_content_update_values
             python manage.py test
-            cp simple_dashboard/.pylintrc .
-            pylint simple_dashboard
+            cp simple_content/.pylintrc .
+            pylint simple_content
             bandit -r .
       - save_cache:
-          key: venv-312-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_dashboard/requirements.txt" }}
+          key: venv-312-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_content/requirements.txt" }}
           paths:
             - "/home/circleci/venv"
       - store_test_results:
@@ -140,24 +140,24 @@ jobs:
             pip install wheel
             pip install -r requirements.txt
             cd ..
-            mv project simple_dashboard
+            mv project simple_content
             mkdir django
             cd django
             django-admin startproject sd
-            mv ../simple_dashboard sd
+            mv ../simple_content sd
             cd sd
-            cp simple_dashboard/.circleci/circle_settings.py sd/settings.py
+            cp simple_content/.circleci/circle_settings.py sd/settings.py
             git clone https://github.com/audacious-software/Quicksilver-Django.git quicksilver
             pip install -r quicksilver/requirements.txt
             python manage.py migrate
             python manage.py install_quicksilver_tasks
-            python manage.py simple_dashboard_update_values
+            python manage.py simple_content_update_values
             python manage.py test
-            cp simple_dashboard/.pylintrc .
-            pylint simple_dashboard
+            cp simple_content/.pylintrc .
+            pylint simple_content
             bandit -r .
       - save_cache:
-          key: venv-310-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_dashboard/requirements.txt" }}
+          key: venv-310-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_content/requirements.txt" }}
           paths:
             - "/home/circleci/venv"
       - store_test_results:
@@ -190,24 +190,24 @@ jobs:
             pip install wheel
             pip install -r requirements.txt
             cd ..
-            mv project simple_dashboard
+            mv project simple_content
             mkdir django
             cd django
             django-admin startproject sd
-            mv ../simple_dashboard sd
+            mv ../simple_content sd
             cd sd
-            cp simple_dashboard/.circleci/circle_settings.py sd/settings.py
+            cp simple_content/.circleci/circle_settings.py sd/settings.py
             git clone https://github.com/audacious-software/Quicksilver-Django.git quicksilver
             pip install -r quicksilver/requirements.txt
             python manage.py migrate
             python manage.py install_quicksilver_tasks
-            python manage.py simple_dashboard_update_values
+            python manage.py simple_content_update_values
             python manage.py test
-            cp simple_dashboard/.pylintrc .
-            pylint simple_dashboard
+            cp simple_content/.pylintrc .
+            pylint simple_content
             bandit -r .
       - save_cache:
-          key: venv-39-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_dashboard/requirements.txt" }}
+          key: venv-39-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_content/requirements.txt" }}
           paths:
             - "/home/circleci/venv"
       - store_test_results:
@@ -240,24 +240,24 @@ jobs:
             pip install wheel
             pip install -r requirements.txt
             cd ..
-            mv project simple_dashboard
+            mv project simple_content
             mkdir django
             cd django
             django-admin startproject sd
-            mv ../simple_dashboard sd
+            mv ../simple_content sd
             cd sd
-            cp simple_dashboard/.circleci/circle_settings.py sd/settings.py
+            cp simple_content/.circleci/circle_settings.py sd/settings.py
             git clone https://github.com/audacious-software/Quicksilver-Django.git quicksilver
             pip install -r quicksilver/requirements.txt
             python manage.py migrate
             python manage.py install_quicksilver_tasks
-            python manage.py simple_dashboard_update_values
+            python manage.py simple_content_update_values
             python manage.py test
-            cp simple_dashboard/.pylintrc .
-            pylint simple_dashboard
+            cp simple_content/.pylintrc .
+            pylint simple_content
             bandit -r .
       - save_cache:
-          key: venv-38-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_dashboard/requirements.txt" }}
+          key: venv-38-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_content/requirements.txt" }}
           paths:
             - "/home/circleci/venv"
       - store_test_results:
@@ -290,24 +290,24 @@ jobs:
             pip install wheel
             pip install -r requirements.txt
             cd ..
-            mv project simple_dashboard
+            mv project simple_content
             mkdir django
             cd django
             django-admin startproject sd
-            mv ../simple_dashboard sd
+            mv ../simple_content sd
             cd sd
-            cp simple_dashboard/.circleci/circle_settings.py sd/settings.py
+            cp simple_content/.circleci/circle_settings.py sd/settings.py
             git clone https://github.com/audacious-software/Quicksilver-Django.git quicksilver
             pip install -r quicksilver/requirements.txt
             python manage.py migrate
             python manage.py install_quicksilver_tasks
-            python manage.py simple_dashboard_update_values
+            python manage.py simple_content_update_values
             python manage.py test
             cp quicksilver/.pylintrc .
-            pylint simple_dashboard
+            pylint simple_content
             bandit -r .
       - save_cache:
-          key: venv-37-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_dashboard/requirements.txt" }}
+          key: venv-37-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_content/requirements.txt" }}
           paths:
             - "/home/circleci/venv"
       - store_test_results:
@@ -340,24 +340,24 @@ jobs:
             pip install wheel
             pip install -r requirements.txt
             cd ..
-            mv project simple_dashboard
+            mv project simple_content
             mkdir django
             cd django
             django-admin startproject sd
-            mv ../simple_dashboard sd
+            mv ../simple_content sd
             cd sd
-            cp simple_dashboard/.circleci/circle_settings.py sd/settings.py
+            cp simple_content/.circleci/circle_settings.py sd/settings.py
             git clone https://github.com/audacious-software/Quicksilver-Django.git quicksilver
             pip install -r quicksilver/requirements.txt
             python manage.py migrate
             python manage.py install_quicksilver_tasks
-            python manage.py simple_dashboard_update_values
+            python manage.py simple_content_update_values
             python manage.py test
             cp quicksilver/.pylintrc .
-            pylint simple_dashboard
+            pylint simple_content
             bandit -r .
       - save_cache:
-          key: venv-36-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_dashboard/requirements.txt" }}
+          key: venv-36-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_content/requirements.txt" }}
           paths:
             - "/home/circleci/venv"
       - store_test_results:
@@ -390,24 +390,24 @@ jobs:
             pip install wheel
             pip install -r requirements.txt
             cd ..
-            mv project simple_dashboard
+            mv project simple_content
             mkdir django
             cd django
             django-admin startproject sd
-            mv ../simple_dashboard sd
+            mv ../simple_content sd
             cd sd
-            cp simple_dashboard/.circleci/circle_settings.py sd/settings.py
+            cp simple_content/.circleci/circle_settings.py sd/settings.py
             git clone https://github.com/audacious-software/Quicksilver-Django.git quicksilver
             pip install -r quicksilver/requirements.txt
             python manage.py migrate
             python manage.py install_quicksilver_tasks
-            python manage.py simple_dashboard_update_values
+            python manage.py simple_content_update_values
             python manage.py test
             cp quicksilver/.pylintrc .
-            pylint simple_dashboard
+            pylint simple_content
             bandit -r .
       - save_cache:
-          key: venv-27-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_dashboard/requirements.txt" }}
+          key: venv-27-{{ .Branch }}-{{ checksum "/home/circleci/django/sd/simple_content/requirements.txt" }}
           paths:
             - "/home/circleci/venv"
       - store_test_results:
