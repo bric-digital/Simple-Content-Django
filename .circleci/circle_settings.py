@@ -7,6 +7,7 @@ Settings.py for testing on Circle CI.
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import sys
+import tempfile
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -98,3 +99,5 @@ STATIC_ROOT = 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR) + '/media/'
+
+QUICKSILVER_LOCK_DIR = tempfile.gettempdir()
