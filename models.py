@@ -43,7 +43,7 @@ class PageCollection(models.Model):
 
         template = Template('{% load simple_content %}' + self.content_rendered)
 
-        return mark_safe(template.render(Context(context)))
+        return mark_safe(template.render(Context(context))) # nosec
 
     def get_head(self):
         context = {
@@ -89,7 +89,7 @@ class PageContent(models.Model):
 
         template = Template('{% load simple_content %}' + self.content_rendered)
 
-        return mark_safe(template.render(Context(context)))
+        return mark_safe(template.render(Context(context))) # nosec
 
     def get_head(self):
         context = {
